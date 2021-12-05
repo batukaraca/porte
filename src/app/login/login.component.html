@@ -1,0 +1,25 @@
+<main>
+    <div class="login-div">
+        <!-- <p class="text-danger" *ngIf="missinfo == true">Please fill in blank fields.</p>
+        <p class="text-danger" *ngIf="wronginfo == true">Invalid Email or Password.</p> -->
+        <img src="../assets/app-icon.png" alt="">
+        <form method="post" [formGroup]="registerForm" novalidate>
+            <div class="input-div">
+                <input type="email" formControlName="email" placeholder="Email" (focus)="changeTouch()"
+                    [ngStyle]="{'border':registerForm.get('email')?.invalid == true && registerForm.get('email')?.touched == true && registerForm.get('email')?.value != '' ? '2px solid #c1272d' : '2px solid #b3b3b3'}"
+                    autocomplete="off" name="email" />
+                    <div class="warning-div" [ngStyle]="{'display':registerForm.get('email')?.invalid == true && registerForm.get('email')?.touched == true && registerForm.get('email')?.value != '' ? 'block' : 'none'}">This is not an email adress</div>
+            </div>
+            <div class="input-div">
+                <input type="password" formControlName="password" placeholder="Password"
+                    autocomplete="off" name="password" />
+            </div>
+            <!-- Button -->
+            <button class="submit-btn" type="submit" (click)="SignIn()">Sign in</button>
+            <p class="text-success" *ngIf="success == true">Success.</p>
+            <p>Not registered yet?</p>
+            <a href="">Sing up</a>
+        </form>
+    </div>
+    <ngx-ui-loader></ngx-ui-loader>
+</main>
